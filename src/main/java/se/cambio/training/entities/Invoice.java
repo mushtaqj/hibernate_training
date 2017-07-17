@@ -12,9 +12,8 @@ public class Invoice extends AbstractEntity
 	/**
 	 * name will be used to store customer name
 	 */
-
 	private Date date;
-	private List<Spare> spares;
+	private List<SparePart> spareParts;
 
 	public Date getDate()
 	{
@@ -26,13 +25,13 @@ public class Invoice extends AbstractEntity
 		this.date = date;
 	}
 
-	public List<Spare> getSpares()
+	public List<SparePart> getSpareParts()
 	{
-		return spares;
+		return spareParts;
 	}
 
-	public void setSpares(List<Spare> spares)
+	public void setSpareParts(List<SparePart> spareParts)
 	{
-		this.spares = spares;
+		this.spareParts = spareParts;
 	}
 }

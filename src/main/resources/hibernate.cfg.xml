@@ -9,6 +9,10 @@
         <property name="connection.username">root</property>
         <property name="connection.password">ushallpass</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!--Hibernate current session configuration-->
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">create</property>
 
@@ -16,5 +20,11 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+
+        <!--Mappings -->
+        <mapping resource="se/cambio/training/entities/Category.xml"/>
+        <mapping resource="se/cambio/training/entities/Manufacturer.xml"/>
+        <mapping resource="se/cambio/training/entities/SparePart.xml"/>
+
     </session-factory>
 </hibernate-configuration>

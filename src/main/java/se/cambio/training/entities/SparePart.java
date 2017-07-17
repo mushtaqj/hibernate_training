@@ -4,7 +4,7 @@ package se.cambio.training.entities;
  * @author MJameel
  * @since on 7/17/2017.
  */
-public class Spare extends AbstractEntity
+public class SparePart extends AbstractEntity
 {
 	private Category category;
 	private Manufacturer manufacturer;
