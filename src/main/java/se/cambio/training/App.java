@@ -1,13 +1,14 @@
 package se.cambio.training;
 
 /**
- * Hello world!
- *
+ * @author MJameel
+ * @since on 7/17/2017.
  */
-public class App 
+public class App extends AbstractApp
 {
-    public static void main( String[] args )
+
+    public static void main(final String[] args) throws Exception
     {
-        System.out.println( "Hello World!" );
+
     }
 }
