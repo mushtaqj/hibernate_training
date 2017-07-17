@@ -1,4 +1,4 @@
-package se.cambio.training.entities;
+package se.cambio.training.entities.annotated;
 
 /**
  * @author MJameel

@@ -9,7 +9,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="se.cambio.training.entities">
+<hibernate-mapping package="se.cambio.training.entities.mapped">
 
     <class name="SparePart" table="SPARE_PARTS">
         <id name="id">

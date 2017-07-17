@@ -1,4 +1,4 @@
-package se.cambio.training.entities;
+package se.cambio.training.entities.mapped;
 
 import java.util.Date;
 import java.util.List;

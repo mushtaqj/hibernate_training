@@ -22,9 +22,9 @@
         <property name="format_sql">true</property>
 
         <!--Mappings -->
-        <mapping resource="se/cambio/training/entities/Category.xml"/>
-        <mapping resource="se/cambio/training/entities/Manufacturer.xml"/>
-        <mapping resource="se/cambio/training/entities/SparePart.xml"/>
+        <mapping resource="se/cambio/training/entities/mapped/Category.xml"/>
+        <mapping resource="se/cambio/training/entities/mapped/Manufacturer.xml"/>
+        <mapping resource="se/cambio/training/entities/mapped/SparePart.xml"/>
 
     </session-factory>
 </hibernate-configuration>

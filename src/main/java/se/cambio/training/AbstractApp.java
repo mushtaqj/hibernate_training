@@ -2,7 +2,7 @@ package se.cambio.training;
 
 import org.hibernate.Session;
 
-import se.cambio.training.entities.AbstractEntity;
+import se.cambio.training.entities.mapped.AbstractEntity;
 import se.cambio.training.util.HibernateUtil;
 
 /**

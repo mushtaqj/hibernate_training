@@ -1,7 +1,7 @@
 package se.cambio.training;
 
 import org.hibernate.Session;
-import se.cambio.training.entities.Category;
+import se.cambio.training.entities.mapped.Category;
 
 /**
  * @author MJameel
