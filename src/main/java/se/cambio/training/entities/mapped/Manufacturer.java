@@ -1,5 +1,7 @@
 package se.cambio.training.entities.mapped;
 
+import se.cambio.training.entities.AbstractEntity;
+
 /**
  * @author MJameel
  * @since on 7/17/2017.

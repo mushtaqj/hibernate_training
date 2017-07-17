@@ -1,4 +1,4 @@
-package se.cambio.training;
+package se.cambio.training.app;
 
 import org.hibernate.Session;
 import se.cambio.training.entities.mapped.Category;
@@ -10,9 +10,13 @@ import se.cambio.training.entities.mapped.Category;
 public class XmlConfigApp extends AbstractApp
 {
 
+    public XmlConfigApp(String configFile) {
+        super(configFile);
+    }
+
     public static void main(final String[] args) throws Exception
     {
-        XmlConfigApp app = new XmlConfigApp();
+        XmlConfigApp app = new XmlConfigApp("hibernate.mapped.cfg.xml");
 
         //Begin the transaction
         Session session = app.getCurrentSession();

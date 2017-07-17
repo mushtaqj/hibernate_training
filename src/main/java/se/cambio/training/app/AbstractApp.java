@@ -1,8 +1,8 @@
-package se.cambio.training;
+package se.cambio.training.app;
 
 import org.hibernate.Session;
 
-import se.cambio.training.entities.mapped.AbstractEntity;
+import se.cambio.training.entities.AbstractEntity;
 import se.cambio.training.util.HibernateUtil;
 
 /**
@@ -11,14 +11,20 @@ import se.cambio.training.util.HibernateUtil;
  */
 public abstract class AbstractApp
 {
+	private final HibernateUtil hibernateUtil;
+
+	public AbstractApp(final String configFile) {
+		this.hibernateUtil = HibernateUtil.getInstance(configFile);
+	}
+
 	Session getCurrentSession()
 	{
-		return HibernateUtil.getCurrentSession();
+		return hibernateUtil.getCurrentSession();
 	}
 
 	Session openSession()
 	{
-		return HibernateUtil.openSession();
+		return hibernateUtil.openSession();
 	}
 
 	void persist(AbstractEntity entity)

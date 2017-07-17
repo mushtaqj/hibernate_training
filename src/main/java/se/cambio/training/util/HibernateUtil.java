@@ -14,20 +14,49 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil
 {
-	//XML based configuration
-	private static SessionFactory sessionFactory;
+	private final String CONFIG_FILE;
 
-	static {
-		sessionFactory = buildSessionFactory();
+	//XML based configuration
+	private SessionFactory sessionFactory;
+
+	private HibernateUtil(String configFile)
+	{
+		this.CONFIG_FILE = configFile;
+		this.sessionFactory = buildSessionFactory();
+	}
+
+	public static HibernateUtil getInstance(String configFile)
+	{
+		return new HibernateUtil(configFile);
+	}
+
+	public Session getCurrentSession() {
+
+		if (sessionFactory != null && sessionFactory.isOpen())
+		{
+			return sessionFactory.getCurrentSession();
+		}
+
+		throw new IllegalStateException("Session factory not initialized or is closed");
+	}
+
+	public Session openSession() {
+
+		if (sessionFactory != null && sessionFactory.isOpen())
+		{
+			return sessionFactory.openSession();
+		}
+
+		throw new IllegalStateException("Session factory not initialized or is closed");
 	}
 
 	@Deprecated
-	private static SessionFactory buildSessionFactoryDeprecated()
+	private SessionFactory buildSessionFactoryDeprecated()
 	{
 		try
 		{
 			Configuration configuration = new Configuration();
-			configuration.configure();
+			configuration.configure(CONFIG_FILE);
 
 			return configuration.buildSessionFactory();
 		} catch (Exception ex)
@@ -36,9 +65,9 @@ public class HibernateUtil
 		}
 	}
 
-	private static SessionFactory buildSessionFactory()
+	private SessionFactory buildSessionFactory()
 	{
-		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure(CONFIG_FILE).build();
 		try
 		{
 			final Metadata metadata = new MetadataSources(registry).buildMetadata();
@@ -51,25 +80,5 @@ public class HibernateUtil
 			StandardServiceRegistryBuilder.destroy(registry);
 			throw new ExceptionInInitializerError(ex);
 		}
-	}
-
-	public static Session getCurrentSession() {
-
-		if (sessionFactory != null && sessionFactory.isOpen())
-		{
-			return sessionFactory.getCurrentSession();
-		}
-
-		throw new IllegalStateException("Session factory not initialized or is closed");
-	}
-
-	public static Session openSession() {
-
-		if (sessionFactory != null && sessionFactory.isOpen())
-		{
-			return sessionFactory.openSession();
-		}
-
-		throw new IllegalStateException("Session factory not initialized or is closed");
 	}
 }

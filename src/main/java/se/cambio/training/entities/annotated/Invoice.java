@@ -1,5 +1,7 @@
 package se.cambio.training.entities.annotated;
 
+import se.cambio.training.entities.AbstractEntity;
+
 import java.util.Date;
 import java.util.List;
 
