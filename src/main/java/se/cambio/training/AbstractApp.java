@@ -11,26 +11,24 @@ import se.cambio.training.util.HibernateUtil;
  */
 public abstract class AbstractApp
 {
-	public Session getCurrentSession()
+	Session getCurrentSession()
 	{
 		return HibernateUtil.getCurrentSession();
 	}
 
-	public Session openSession()
+	Session openSession()
 	{
 		return HibernateUtil.openSession();
 	}
 
-	public void persist(AbstractEntity entity)
+	void persist(AbstractEntity entity)
 	{
 		getCurrentSession().save(entity);
 	}
 
-	public void delete(AbstractEntity entity)
+	void delete(AbstractEntity entity)
 	{
 		getCurrentSession().update(entity);
 	}
-
-
 
 }
