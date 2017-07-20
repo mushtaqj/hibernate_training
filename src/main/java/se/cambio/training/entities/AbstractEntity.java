@@ -2,16 +2,13 @@ package se.cambio.training.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author MJameel
  * @since on 7/17/2017.
  */
-@Entity
+@MappedSuperclass
 public abstract class AbstractEntity
 {
 	@Id
