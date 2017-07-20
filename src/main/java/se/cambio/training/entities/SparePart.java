@@ -1,15 +1,23 @@
-package se.cambio.training.entities.mapped;
+package se.cambio.training.entities;
 
-import se.cambio.training.entities.AbstractEntity;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * @author MJameel
  * @since on 7/17/2017.
  */
+@Entity
+@Table(name = "SPARE_PARTS")
 public class SparePart extends AbstractEntity
 {
+	@ManyToOne
 	private Category category;
+	@ManyToOne
 	private Manufacturer manufacturer;
+	@Basic
 	private String description;
 
 	public Category getCategory()

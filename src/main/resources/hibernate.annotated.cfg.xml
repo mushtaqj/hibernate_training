@@ -14,7 +14,7 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- DB schema will be updated if needed -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
         <!--Debugging -->
         <!-- Echo all executed SQL to stdout -->
@@ -22,9 +22,10 @@
         <property name="format_sql">true</property>
 
         <!--Mappings -->
-        <mapping class="se.cambio.training.entities.annotated.Category"/>
-        <mapping class="se.cambio.training.entities.annotated.Manufacturer"/>
-        <mapping class="se.cambio.training.entities.annotated.SparePart"/>
+        <mapping class="se.cambio.training.entities.Category"/>
+        <mapping class="se.cambio.training.entities.Manufacturer"/>
+        <mapping class="se.cambio.training.entities.SparePart"/>
+        <mapping class="se.cambio.training.entities.Invoice"/>
 
     </session-factory>
 </hibernate-configuration>

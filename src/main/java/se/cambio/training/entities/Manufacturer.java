@@ -1,4 +1,4 @@
-package se.cambio.training.entities.annotated;
+package se.cambio.training.entities;
 
 import se.cambio.training.entities.AbstractEntity;
 

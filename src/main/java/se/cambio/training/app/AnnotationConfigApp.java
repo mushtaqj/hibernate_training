@@ -1,7 +1,7 @@
 package se.cambio.training.app;
 
 import org.hibernate.Session;
-import se.cambio.training.entities.annotated.Category;
+import se.cambio.training.entities.Category;
 
 /**
  * @author MJameel
@@ -9,7 +9,6 @@ import se.cambio.training.entities.annotated.Category;
  */
 public class AnnotationConfigApp extends AbstractApp
 {
-
     public AnnotationConfigApp(String configFile) {
         super(configFile);
     }
@@ -26,6 +25,8 @@ public class AnnotationConfigApp extends AbstractApp
         Category category = new Category();
         category.setName("Headlights");
         category.setDescription("Headlights for motor vehicles");
+
+
 
         //save object
         app.persist(category);

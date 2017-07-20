@@ -1,7 +1,7 @@
 package se.cambio.training.app;
 
 import org.hibernate.Session;
-import se.cambio.training.entities.mapped.Category;
+import se.cambio.training.entities.Category;
 
 /**
  * @author MJameel
@@ -33,5 +33,7 @@ public class XmlConfigApp extends AbstractApp
         //commit the transaction
         session.getTransaction().commit();
         session.close();
+
+        System.exit(0);
     }
 }

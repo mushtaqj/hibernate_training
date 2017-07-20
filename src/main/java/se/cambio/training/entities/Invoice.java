@@ -1,6 +1,4 @@
-package se.cambio.training.entities.mapped;
-
-import se.cambio.training.entities.AbstractEntity;
+package se.cambio.training.entities;
 
 import java.util.Date;
 import java.util.List;
