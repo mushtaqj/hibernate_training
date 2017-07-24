@@ -1,6 +1,7 @@
 package se.cambio.training.entities;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -13,12 +14,21 @@ import javax.persistence.Table;
 @Table(name = "SPARE_PARTS")
 public class SparePart extends AbstractEntity
 {
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Category category;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Manufacturer manufacturer;
 	@Basic
 	private String description;
+
+	public SparePart()
+	{}
+
+	public SparePart(final String name, final String description)
+	{
+		setName(name);
+		this.description = description;
+	}
 
 	public Category getCategory()
 	{

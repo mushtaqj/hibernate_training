@@ -1,7 +1,5 @@
 package se.cambio.training.entities;
 
-import se.cambio.training.entities.AbstractEntity;
-
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -16,6 +14,16 @@ public class Category extends AbstractEntity
 {
 	@Basic
 	private String description;
+
+	public Category()
+	{
+		//default no-args constructor
+	}
+
+	public Category(String name)
+	{
+		setName("name");
+	}
 
 	public String getDescription()
 	{

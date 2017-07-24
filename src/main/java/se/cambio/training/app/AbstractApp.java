@@ -3,7 +3,7 @@ package se.cambio.training.app;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import se.cambio.training.entities.AbstractEntity;
-import se.cambio.training.util.HibernateUtil;
+import se.cambio.training.util.EntityManager;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -17,10 +17,11 @@ import java.util.List;
  */
 public abstract class AbstractApp
 {
-	private final HibernateUtil hibernateUtil;
+	private final EntityManager hibernateUtil;
 
 	public AbstractApp(final String configFile) {
-		this.hibernateUtil = HibernateUtil.getInstance(configFile);
+
+		this.hibernateUtil = EntityManager.getInstance(configFile);
 	}
 
 	Session getCurrentSession()

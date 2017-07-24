@@ -9,28 +9,37 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 /**
+ * Encapsulate Hibernate SessionFactory
+ *
  * @author MJameel
  * @since on 7/17/2017.
  */
-public class HibernateUtil
+public class EntityManager
 {
 	private final String CONFIG_FILE;
 
 	//XML based configuration
-	private SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
+	private static EntityManager instance;
 
-	private HibernateUtil(String configFile)
+	private EntityManager(String configFile)
 	{
 		this.CONFIG_FILE = configFile;
-		this.sessionFactory = buildSessionFactory();
+		sessionFactory = buildSessionFactory();
 	}
 
-	public static HibernateUtil getInstance(String configFile)
+	public static EntityManager getInstance(String configFile)
 	{
-		return new HibernateUtil(configFile);
+		if (instance == null)
+		{
+			instance = new EntityManager(configFile);
+		}
+
+		return instance;
 	}
 
-	public Session getCurrentSession() {
+	public Session getCurrentSession()
+	{
 
 		if (sessionFactory != null && sessionFactory.isOpen())
 		{
@@ -40,7 +49,8 @@ public class HibernateUtil
 		throw new IllegalStateException("Session factory not initialized or is closed");
 	}
 
-	public Session openSession() {
+	public Session openSession()
+	{
 
 		if (sessionFactory != null && sessionFactory.isOpen())
 		{

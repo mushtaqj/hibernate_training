@@ -1,7 +1,9 @@
 package se.cambio.training.app;
 
 import org.hibernate.Session;
-import se.cambio.training.entities.Category;
+
+import se.cambio.training.entities.Invoice;
+import se.cambio.training.entities.SparePart;
 
 /**
  * @author MJameel
@@ -9,6 +11,7 @@ import se.cambio.training.entities.Category;
  */
 public class AnnotationConfigApp extends AbstractApp
 {
+
     public AnnotationConfigApp(String configFile) {
         super(configFile);
     }
@@ -21,17 +24,14 @@ public class AnnotationConfigApp extends AbstractApp
         Session session = app.getCurrentSession();
         session.beginTransaction();
 
-        //create object
-        Category category = new Category();
-        category.setName("Headlights");
-        category.setDescription("Headlights for motor vehicles");
+        Invoice invoice = app.get(Invoice.class, 2);
+        SparePart sparePart = app.load(SparePart.class, 6);
 
+        invoice.getSpareParts().remove(sparePart);
 
+        app.update(invoice);
 
-        //save object
-        app.persist(category);
-
-        //commit the transaction
+        //commit the transactions
         session.getTransaction().commit();
         session.close();
     }
