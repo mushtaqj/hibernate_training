@@ -17,6 +17,16 @@ public class Manufacturer extends AbstractEntity {
     @Basic
     private String registrationNumber;
 
+    public Manufacturer()
+    {
+    }
+
+    public Manufacturer(String name, String registrationNumber)
+    {
+        this.registrationNumber = registrationNumber;
+        setName(name);
+    }
+
     //  `http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#associations-one-to-many
     @OneToMany(mappedBy = "manufacturer")
     private List<SparePart> spareParts;

@@ -1,7 +1,10 @@
 package se.cambio.training.entities;
 
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,14 +18,18 @@ public class Category extends AbstractEntity
 	@Basic
 	private String description;
 
+	@OneToMany(mappedBy = "category",orphanRemoval = true)
+	private List<SparePart> spareParts;
+
 	public Category()
 	{
 		//default no-args constructor
 	}
 
-	public Category(String name)
+	public Category(String name, String description)
 	{
-		setName("name");
+		setName(name);
+		setDescription(description);
 	}
 
 	public String getDescription()
@@ -33,5 +40,15 @@ public class Category extends AbstractEntity
 	public void setDescription(String description)
 	{
 		this.description = description;
+	}
+
+	public List<SparePart> getSpareParts()
+	{
+		return spareParts;
+	}
+
+	public void setSpareParts(List<SparePart> spareParts)
+	{
+		this.spareParts = spareParts;
 	}
 }

@@ -1,9 +1,16 @@
 package se.cambio.training.app;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
+import se.cambio.training.entities.Category;
 import se.cambio.training.entities.Invoice;
+import se.cambio.training.entities.Manufacturer;
 import se.cambio.training.entities.SparePart;
+import se.cambio.training.factories.CategoryInventoryControl;
+import se.cambio.training.factories.InventoryControl;
+import se.cambio.training.factories.ManufacturerInventoryControl;
 
 /**
  * @author MJameel
@@ -24,15 +31,21 @@ public class AnnotationConfigApp extends AbstractApp
         Session session = app.getCurrentSession();
         session.beginTransaction();
 
-        Invoice invoice = app.get(Invoice.class, 2);
-        SparePart sparePart = app.load(SparePart.class, 6);
-
-        invoice.getSpareParts().remove(sparePart);
-
-        app.update(invoice);
 
         //commit the transactions
         session.getTransaction().commit();
         session.close();
+    }
+
+    private static List<Category> generateCategories()
+    {
+        InventoryControl<Category> categories = new CategoryInventoryControl();
+        return categories.populate();
+    }
+
+    private static List<Manufacturer> generateManufacturers()
+    {
+        InventoryControl<Manufacturer> manufacturers = new ManufacturerInventoryControl();
+        return manufacturers.populate();
     }
 }
