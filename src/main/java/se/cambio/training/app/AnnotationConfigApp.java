@@ -19,33 +19,42 @@ import se.cambio.training.factories.ManufacturerInventoryControl;
 public class AnnotationConfigApp extends AbstractApp
 {
 
-    public AnnotationConfigApp(String configFile) {
-        super(configFile);
-    }
+	public AnnotationConfigApp(String configFile)
+	{
+		super(configFile);
+	}
 
-    public static void main(final String[] args) throws Exception
-    {
-        AnnotationConfigApp app = new AnnotationConfigApp("hibernate.annotated.cfg.xml");
+	public static void main(final String[] args) throws Exception
+	{
+		AnnotationConfigApp app = new AnnotationConfigApp("hibernate.annotated.cfg.xml");
 
-        //Begin the transaction
-        Session session = app.getCurrentSession();
-        session.beginTransaction();
+		//Begin the transaction
+		Session session = app.getCurrentSession();
+		session.beginTransaction();
 
+//				SparePart sparePart = new SparePart("Toyota head lights","Toyota lights for Honet Motor bike 2015");
+//				sparePart.setCategory(app.load(Category.class,3));
+//				sparePart.setManufacturer(app.load(Manufacturer.class,2));
 
-        //commit the transactions
-        session.getTransaction().commit();
-        session.close();
-    }
+		SparePart sparePart = app.load(SparePart.class, 1);
+		sparePart.setCategory(app.load(Category.class, 3));
 
-    private static List<Category> generateCategories()
-    {
-        InventoryControl<Category> categories = new CategoryInventoryControl();
-        return categories.populate();
-    }
+		app.update(sparePart);
 
-    private static List<Manufacturer> generateManufacturers()
-    {
-        InventoryControl<Manufacturer> manufacturers = new ManufacturerInventoryControl();
-        return manufacturers.populate();
-    }
+		//commit the transactions
+		session.getTransaction().commit();
+		session.close();
+	}
+
+	private static List<Category> generateCategories()
+	{
+		InventoryControl<Category> categories = new CategoryInventoryControl();
+		return categories.populate();
+	}
+
+	private static List<Manufacturer> generateManufacturers()
+	{
+		InventoryControl<Manufacturer> manufacturers = new ManufacturerInventoryControl();
+		return manufacturers.populate();
+	}
 }
