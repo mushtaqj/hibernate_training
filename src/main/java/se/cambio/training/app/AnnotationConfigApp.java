@@ -36,10 +36,17 @@ public class AnnotationConfigApp extends AbstractApp
 //				sparePart.setCategory(app.load(Category.class,3));
 //				sparePart.setManufacturer(app.load(Manufacturer.class,2));
 
-		SparePart sparePart = app.load(SparePart.class, 1);
-		sparePart.setCategory(app.load(Category.class, 3));
+//		SparePart sparePart = app.load(SparePart.class, 1);
+//		sparePart.setCategory(app.load(Category.class, 3));
+//
+//		app.update(sparePart);
 
-		app.update(sparePart);
+		Category category = app.load(Category.class,3);
+		for (SparePart sparePart : category.getSpareParts())
+		{
+			System.out.println(sparePart);
+		}
+
 
 		//commit the transactions
 		session.getTransaction().commit();
