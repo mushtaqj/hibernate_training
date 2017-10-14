@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,7 +20,9 @@ public class Category extends AbstractEntity
 	@Basic
 	private String description;
 
-	@OneToMany(mappedBy = "category",orphanRemoval = true)
+	@OneToMany
+	@JoinTable(joinColumns = {@JoinColumn(name = "category_id") },
+		inverseJoinColumns = { @JoinColumn(name = "spare_part_id") })
 	private List<SparePart> spareParts;
 
 	public Category()

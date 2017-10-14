@@ -41,7 +41,7 @@ public class EntityManager
 	public Session getCurrentSession()
 	{
 
-		if (sessionFactory != null && sessionFactory.isOpen())
+		if (sessionFactory != null)
 		{
 			return sessionFactory.getCurrentSession();
 		}
@@ -52,7 +52,7 @@ public class EntityManager
 	public Session openSession()
 	{
 
-		if (sessionFactory != null && sessionFactory.isOpen())
+		if (sessionFactory != null)
 		{
 			return sessionFactory.openSession();
 		}
@@ -85,6 +85,7 @@ public class EntityManager
 
 		} catch (Exception ex)
 		{
+			ex.printStackTrace();
 			// The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
 			// so destroy it manually.
 			StandardServiceRegistryBuilder.destroy(registry);

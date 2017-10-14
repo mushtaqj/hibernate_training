@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_training</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/rimsapp_db</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">ushallpass</property>
@@ -15,6 +15,7 @@
 
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.autocommit">true</property>
 
         <!--Debugging -->
         <!-- Echo all executed SQL to stdout -->
@@ -22,10 +23,20 @@
         <property name="format_sql">true</property>
 
         <!--Mappings -->
-        <mapping class="se.cambio.training.entities.Category"/>
-        <mapping class="se.cambio.training.entities.Manufacturer"/>
-        <mapping class="se.cambio.training.entities.SparePart"/>
-        <mapping class="se.cambio.training.entities.Invoice"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.PlantStage"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.NurserySeason"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.Nursery"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryEmployee"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.EmployeeTask"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryEmployeeSeasonTask"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.usermanagement.Organization"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.RegionalOffice"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryPermitRequest"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.common.Location"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.common.LocationDetails"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryDocument"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryOwnerType"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryType"/>
 
     </session-factory>
 </hibernate-configuration>

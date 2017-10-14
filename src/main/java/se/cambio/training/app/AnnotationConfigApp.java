@@ -1,5 +1,8 @@
 package se.cambio.training.app;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -32,21 +35,27 @@ public class AnnotationConfigApp extends AbstractApp
 		Session session = app.getCurrentSession();
 		session.beginTransaction();
 
-//				SparePart sparePart = new SparePart("Toyota head lights","Toyota lights for Honet Motor bike 2015");
-//				sparePart.setCategory(app.load(Category.class,3));
-//				sparePart.setManufacturer(app.load(Manufacturer.class,2));
+		Category category09 = app.load(Category.class,9);
+		Category category08 = app.load(Category.class,8);
+		SparePart sparePart01 = app.load(SparePart.class,1);
+		SparePart sparePart02 = app.load(SparePart.class,2);
 
-//		SparePart sparePart = app.load(SparePart.class, 1);
-//		sparePart.setCategory(app.load(Category.class, 3));
-//
-//		app.update(sparePart);
+		final ArrayList<SparePart> spareParts = new ArrayList<SparePart>(category09.getSpareParts());
+		spareParts.remove(sparePart01);
 
-		Category category = app.load(Category.class,3);
-		for (SparePart sparePart : category.getSpareParts())
-		{
-			System.out.println(sparePart);
-		}
+		category09.setSpareParts(spareParts);
+		sparePart01.setCategory(null);
 
+		final ArrayList<SparePart> spareParts02 = new ArrayList<SparePart>(category08.getSpareParts());
+		spareParts02.add(sparePart01);
+
+		category08.setSpareParts(spareParts02);
+		sparePart01.setCategory(category08);
+
+		app.persist(category08);
+		app.update(sparePart01);
+		app.persist(category09);
+		app.update(sparePart02);
 
 		//commit the transactions
 		session.getTransaction().commit();
