@@ -30,13 +30,20 @@
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.EmployeeTask"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryEmployeeSeasonTask"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.usermanagement.Organization"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.RegionalOffice"/>
+        <!--<mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.RegionalOffice"/>-->
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryPermitRequest"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.common.Location"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.common.LocationDetails"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryDocument"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryOwnerType"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryType"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurserySeasonItemTransaction"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.NurserySeasonStockItem"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.Item"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.ItemType"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.ItemGroup"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.UnitOfMeasure"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.CloneType" />
 
     </session-factory>
 </hibernate-configuration>
