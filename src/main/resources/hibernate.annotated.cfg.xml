@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/rimsapp_db</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_training</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">ushallpass</property>
@@ -14,7 +14,7 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- DB schema will be updated if needed -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
         <property name="hibernate.connection.autocommit">true</property>
 
         <!--Debugging -->
@@ -44,6 +44,8 @@
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.ItemGroup"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.UnitOfMeasure"/>
         <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.CloneType" />
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.BankDetails"/>
+        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.Bank"/>
 
     </session-factory>
 </hibernate-configuration>
