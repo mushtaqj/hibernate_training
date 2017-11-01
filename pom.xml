@@ -66,11 +66,19 @@
             <version>6.0.6</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>lk.pwc.projects.rdd</groupId>-->
+            <!--<artifactId>rdd-entitymanagement</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
-            <groupId>lk.pwc.projects.rdd</groupId>
-            <artifactId>rdd-entitymanagement</artifactId>
-            <version>1.0</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
         </dependency>
+
 
     </dependencies>
 

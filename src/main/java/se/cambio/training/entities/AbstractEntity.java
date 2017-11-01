@@ -1,5 +1,7 @@
 package se.cambio.training.entities;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

@@ -38,4 +38,14 @@ public class Manufacturer extends AbstractEntity {
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
+
+    public List<SparePart> getSpareParts()
+    {
+        return spareParts;
+    }
+
+    public void setSpareParts(List<SparePart> spareParts)
+    {
+        this.spareParts = spareParts;
+    }
 }

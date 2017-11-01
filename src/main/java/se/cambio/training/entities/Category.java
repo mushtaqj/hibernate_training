@@ -20,9 +20,7 @@ public class Category extends AbstractEntity
 	@Basic
 	private String description;
 
-	@OneToMany
-	@JoinTable(joinColumns = {@JoinColumn(name = "category_id") },
-		inverseJoinColumns = { @JoinColumn(name = "spare_part_id") })
+	@OneToMany(mappedBy = "category")
 	private List<SparePart> spareParts;
 
 	public Category()

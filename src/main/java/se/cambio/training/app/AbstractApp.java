@@ -47,7 +47,7 @@ public abstract class AbstractApp
 	 * saves an entity
 	 * @param entity to be saved
 	 */
-	void persist(AbstractEntity entity)
+	public void persist(AbstractEntity entity)
 	{
 		getCurrentSession().save(entity);
 	}
@@ -56,7 +56,7 @@ public abstract class AbstractApp
 	 * Deletes an entity
 	 * @param entity to be deleted
 	 */
-	void delete(AbstractEntity entity)
+	public void delete(AbstractEntity entity)
 	{
 		getCurrentSession().delete(entity);
 	}
@@ -89,7 +89,7 @@ public abstract class AbstractApp
 	 * @param <T> type of the return object
 	 * @return fetched object from database
 	 */
-	<T> T load (Class<T> entityClass,long id)
+	public <T> T load(Class<T> entityClass, long id)
 	{
 		return getCurrentSession().get(entityClass,id);
 	}
