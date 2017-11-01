@@ -14,7 +14,7 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- DB schema will be updated if needed -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.connection.autocommit">true</property>
 
         <!--Debugging -->
@@ -23,29 +23,12 @@
         <property name="format_sql">true</property>
 
         <!--Mappings -->
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.PlantStage"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.NurserySeason"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.Nursery"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryEmployee"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.EmployeeTask"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryEmployeeSeasonTask"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.usermanagement.Organization"/>
-        <!--<mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.RegionalOffice"/>-->
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryPermitRequest"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.common.Location"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.common.LocationDetails"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryDocument"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryOwnerType"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurseryType"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.NurserySeasonItemTransaction"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.NurserySeasonStockItem"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.Item"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.ItemType"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.ItemGroup"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.inventorymanagement.UnitOfMeasure"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.CloneType" />
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.nurserymanagement.BankDetails"/>
-        <mapping class="lk.pwc.projects.rdd.rims.entitymanagement.domain.core.Bank"/>
+        <mapping class="se.cambio.training.entities.Category"/>
+        <mapping class="se.cambio.training.entities.Invoice"/>
+        <mapping class="se.cambio.training.entities.Manufacturer"/>
+        <mapping class="se.cambio.training.entities.SparePart"/>
+        <mapping class="se.cambio.training.entities.AbstractEntity"/>
+
 
     </session-factory>
 </hibernate-configuration>
