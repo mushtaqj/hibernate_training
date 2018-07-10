@@ -14,25 +14,25 @@ import org.hibernate.cfg.Configuration;
  * @author MJameel
  * @since on 7/17/2017.
  */
-public final class EntityManager
+public final class HibernateUtil
 {
 	private final String CONFIG_FILE;
 
 	//XML based configuration
 	private final SessionFactory sessionFactory;
-	private static EntityManager instance;
+	private static HibernateUtil instance;
 
-	private EntityManager(String configFile)
+	private HibernateUtil(String configFile)
 	{
 		this.CONFIG_FILE = configFile;
 		sessionFactory = buildAnnotatedSessionFactory();
 	}
 
-	public static EntityManager getInstance(String configFile)
+	public static HibernateUtil getInstance(String configFile)
 	{
 		if (instance == null)
 		{
-			instance = new EntityManager(configFile);
+			instance = new HibernateUtil(configFile);
 		}
 
 		return instance;

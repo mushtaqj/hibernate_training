@@ -3,7 +3,7 @@ package se.cambio.training.app;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import se.cambio.training.entities.AbstractEntity;
-import se.cambio.training.util.EntityManager;
+import se.cambio.training.util.HibernateUtil;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -15,16 +15,16 @@ import java.util.List;
  * @author MJameel
  * @since on 7/17/2017.
  */
-abstract class AbstractApp
+public final class HibernateManager
 {
-	private final EntityManager hibernateUtil;
+	private final HibernateUtil hibernateUtil;
 
-	public AbstractApp(final String configFile) {
+	public HibernateManager(final String configFile) {
 
-		this.hibernateUtil = EntityManager.getInstance(configFile);
+		this.hibernateUtil = HibernateUtil.getInstance(configFile);
 	}
 
-	Session getCurrentSession()
+	public Session getCurrentSession()
 	{
 		return hibernateUtil.getCurrentSession();
 	}
@@ -41,7 +41,7 @@ abstract class AbstractApp
 	 *
 	 * @throws HibernateException Indicates a problem opening the session; pretty rare here.
 	 */
-	Session openSession()
+	public Session openSession()
 	{
 		return hibernateUtil.openSession();
 	}
@@ -50,7 +50,7 @@ abstract class AbstractApp
 	 * saves an entity
 	 * @param entity to be saved
 	 */
-	void persist(AbstractEntity entity)
+	public void persist(AbstractEntity entity)
 	{
 		getCurrentSession().save(entity);
 	}
@@ -59,7 +59,7 @@ abstract class AbstractApp
 	 * Deletes an entity
 	 * @param entity to be deleted
 	 */
-	void delete(AbstractEntity entity)
+	public void delete(AbstractEntity entity)
 	{
 		getCurrentSession().delete(entity);
 	}
@@ -68,7 +68,7 @@ abstract class AbstractApp
 	 * Updates an entity
 	 * @param entity to be updated
 	 */
-	void update(AbstractEntity entity)
+	public void update(AbstractEntity entity)
 	{
 		getCurrentSession().update(entity);
 	}
@@ -80,7 +80,7 @@ abstract class AbstractApp
 	 * @param <T> type of the return object
 	 * @return fetched object from database
 	 */
-	<T> T get (Class<T> entityClass,long id)
+	public <T> T get (Class<T> entityClass,long id)
 	{
 		return getCurrentSession().get(entityClass,id);
 	}
@@ -92,7 +92,7 @@ abstract class AbstractApp
 	 * @param <T> type of the return object
 	 * @return fetched object from database
 	 */
-	<T> T load (Class<T> entityClass,long id)
+	public <T> T load (Class<T> entityClass,long id)
 	{
 		return getCurrentSession().load(entityClass,id);
 	}
@@ -100,11 +100,10 @@ abstract class AbstractApp
 	/**
 	 * Fetch a collection of entities
 	 * @param entityClass the class of the entity
-	 * @param id to fetch from
 	 * @param <T> type of the return object
 	 * @return fetched object from database
 	 */
-	<T> List<T> getAll (Class<T> entityClass)
+	public <T> List<T> getAll (Class<T> entityClass)
 	{
 		CriteriaBuilder criteriaBuilder = getCurrentSession().getCriteriaBuilder();
 

@@ -7,16 +7,12 @@ import se.cambio.training.entities.Category;
  * @author MJameel
  * @since on 7/17/2017.
  */
-public class XmlConfigApp extends AbstractApp
+public class XmlConfigApp
 {
 
-    public XmlConfigApp(String configFile) {
-        super(configFile);
-    }
-
-    public static void main(final String[] args) throws Exception
+    public static void main(final String[] args)
     {
-        XmlConfigApp app = new XmlConfigApp("hibernate.mapped.cfg.xml");
+        HibernateManager app = new HibernateManager("hibernate.mapped.cfg.xml");
 
         //Begin the transaction
         Session session = app.getCurrentSession();
