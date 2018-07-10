@@ -1,10 +1,13 @@
 package se.cambio.training.entities;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+import org.hibernate.annotations.DynamicInsert;
 
 /**
  * @author MJameel
@@ -14,7 +17,7 @@ import java.util.List;
 @Table(name = "MANUFACTURERS")
 public class Manufacturer extends AbstractEntity {
 
-    @Basic
+    
     private String registrationNumber;
 
     public Manufacturer()

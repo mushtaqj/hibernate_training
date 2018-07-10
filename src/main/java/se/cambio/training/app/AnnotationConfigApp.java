@@ -24,7 +24,7 @@ public class AnnotationConfigApp extends AbstractApp
 		super(configFile);
 	}
 
-	public static void main(final String[] args) throws Exception
+	public static void main(final String[] args)
 	{
 		AnnotationConfigApp app = new AnnotationConfigApp("hibernate.annotated.cfg.xml");
 
@@ -32,18 +32,17 @@ public class AnnotationConfigApp extends AbstractApp
 		Session session = app.getCurrentSession();
 		session.beginTransaction();
 
-//				SparePart sparePart = new SparePart("Toyota head lights","Toyota lights for Honet Motor bike 2015");
-//				sparePart.setCategory(app.load(Category.class,3));
-//				sparePart.setManufacturer(app.load(Manufacturer.class,2));
-
-		SparePart sparePart = app.load(SparePart.class, 1);
-		sparePart.setCategory(app.load(Category.class, 3));
-
-		app.update(sparePart);
+        persistCoreData(app);
 
 		//commit the transactions
 		session.getTransaction().commit();
 		session.close();
+	}
+
+	private static void persistCoreData(final AnnotationConfigApp app)
+	{
+		generateCategories().forEach(app::persist);
+		generateManufacturers().forEach(app::persist);
 	}
 
 	private static List<Category> generateCategories()

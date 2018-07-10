@@ -14,7 +14,7 @@ import org.hibernate.cfg.Configuration;
  * @author MJameel
  * @since on 7/17/2017.
  */
-public class EntityManager
+public final class EntityManager
 {
 	private final String CONFIG_FILE;
 
@@ -25,7 +25,7 @@ public class EntityManager
 	private EntityManager(String configFile)
 	{
 		this.CONFIG_FILE = configFile;
-		sessionFactory = buildSessionFactory();
+		sessionFactory = buildAnnotatedSessionFactory();
 	}
 
 	public static EntityManager getInstance(String configFile)
@@ -61,7 +61,7 @@ public class EntityManager
 	}
 
 	@Deprecated
-	private SessionFactory buildSessionFactoryDeprecated()
+	private SessionFactory buildXMLSessionFactory()
 	{
 		try
 		{
@@ -75,7 +75,7 @@ public class EntityManager
 		}
 	}
 
-	private SessionFactory buildSessionFactory()
+	private SessionFactory buildAnnotatedSessionFactory()
 	{
 		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure(CONFIG_FILE).build();
 		try

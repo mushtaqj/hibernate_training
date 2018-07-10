@@ -15,7 +15,7 @@ import java.util.List;
  * @author MJameel
  * @since on 7/17/2017.
  */
-public abstract class AbstractApp
+abstract class AbstractApp
 {
 	private final EntityManager hibernateUtil;
 
@@ -94,17 +94,17 @@ public abstract class AbstractApp
 	 */
 	<T> T load (Class<T> entityClass,long id)
 	{
-		return getCurrentSession().get(entityClass,id);
+		return getCurrentSession().load(entityClass,id);
 	}
 
 	/**
-	 * Load an a collection of entities
+	 * Fetch a collection of entities
 	 * @param entityClass the class of the entity
 	 * @param id to fetch from
 	 * @param <T> type of the return object
 	 * @return fetched object from database
 	 */
-	<T> List<T> getAll (Class<T> entityClass,long id)
+	<T> List<T> getAll (Class<T> entityClass)
 	{
 		CriteriaBuilder criteriaBuilder = getCurrentSession().getCriteriaBuilder();
 
