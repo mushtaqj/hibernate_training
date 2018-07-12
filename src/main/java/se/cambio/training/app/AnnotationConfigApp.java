@@ -9,7 +9,10 @@ import se.cambio.training.entities.Manufacturer;
 import se.cambio.training.factories.CategoryInventoryControl;
 import se.cambio.training.factories.InventoryControl;
 import se.cambio.training.factories.ManufacturerInventoryControl;
+import se.cambio.training.uow.CreateInvoiceUnitOfWork;
 import se.cambio.training.uow.CreateNewSparePartUnitOfWork;
+import se.cambio.training.uow.CreateNewSparePartUnitOfWorkWithoutCascade;
+import se.cambio.training.uow.UpdateInvoiceUnitOfWork;
 
 /**
  * @author MJameel
@@ -20,17 +23,18 @@ public class AnnotationConfigApp
 
 	public static void main(final String[] args)
 	{
-		final HibernateManager app = new HibernateManager("hibernate.annotated.cfg.xml");
+		final HibernateManager manager = new HibernateManager("hibernate.annotated.cfg.xml");
 
 		//Begin the transaction
-		Session session = app.getCurrentSession();
+		Session session = manager.getCurrentSession();
 		session.beginTransaction();
 
-		new CreateNewSparePartUnitOfWork(app).execute();
+		new UpdateInvoiceUnitOfWork(manager).execute();
 
 		//commit the transactions
 		session.getTransaction().commit();
 		session.close();
+
 	}
 
 	private static void persistCoreData(final HibernateManager app)

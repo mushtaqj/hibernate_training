@@ -7,10 +7,11 @@ import se.cambio.training.entities.SparePart;
 
 /**
  * Creates a new Spare Part with new manufacturer and new category
+ * disable casscades in the entity
  */
-public class CreateNewSparePartUnitOfWork extends UnitOfWork {
+public class CreateNewSparePartUnitOfWorkWithoutCascade extends UnitOfWork {
 
-    public CreateNewSparePartUnitOfWork(final HibernateManager hibernateManager) {
+    public CreateNewSparePartUnitOfWorkWithoutCascade(final HibernateManager hibernateManager) {
         super(hibernateManager);
     }
 
@@ -19,6 +20,7 @@ public class CreateNewSparePartUnitOfWork extends UnitOfWork {
 
         final SparePart hondaWheel = new SparePart();
         final Category tyres = new Category("Tyre","Tyres");
+        hibernateManager.persist(tyres);
         hondaWheel.setName("18' Tyre Honda Bike");
         hondaWheel.setCategory(tyres);
         hondaWheel.setManufacturer(hibernateManager.load(Manufacturer.class,1));
